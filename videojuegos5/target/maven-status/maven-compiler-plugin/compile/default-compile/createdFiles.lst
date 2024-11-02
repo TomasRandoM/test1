@@ -1,0 +1,15 @@
+com\ingenieriaSoftware\videojuegos\business\domain\Videojuego.class
+com\ingenieriaSoftware\videojuegos\business\logic\ErrorServiceException.class
+com\ingenieriaSoftware\videojuegos\business\logic\CategoriaService.class
+com\ingenieriaSoftware\videojuegos\business\domain\Estudio.class
+com\ingenieriaSoftware\videojuegos\controller\TemplateInicioController.class
+com\ingenieriaSoftware\videojuegos\business\repository\CategoriaRepository.class
+com\ingenieriaSoftware\videojuegos\controller\VideojuegoController.class
+com\ingenieriaSoftware\videojuegos\business\repository\EstudioRepository.class
+com\ingenieriaSoftware\videojuegos\controller\CategoriaController.class
+com\ingenieriaSoftware\videojuegos\business\repository\VideojuegoRepository.class
+com\ingenieriaSoftware\videojuegos\business\domain\Categoria.class
+com\ingenieriaSoftware\videojuegos\business\logic\EstudioService.class
+com\ingenieriaSoftware\videojuegos\VideojuegosApplication.class
+com\ingenieriaSoftware\videojuegos\business\logic\VideojuegoService.class
+com\ingenieriaSoftware\videojuegos\controller\EstudioController.class

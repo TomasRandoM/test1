@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+<div th:fragment="navbar">
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a th:href="@{/home}" class="logo">
+                            <img src="assets/images/logo3.png" alt="Videojuegos">
+                        </a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li><a th:href="@{/home}" class="active">Inicio</a></li>
+                            <li><a th:href="@{/inicio}">Videojuegos</a></li>
+                            <li><a th:href="@{/categorias}">Categorías</a></li>
+                            <li><a th:href="@{/estudios}">Estudios</a></li>
+                        </ul>
+                        <div class="border-button">
+                            <a id="modal_trigger" href="#" class="sign-in-up"><i class="fa fa-user"></i> Iniciar Sesión</a>
+                        </div>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>
+
+</body>
+</html>
