@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar videojuego</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-snapx-photography.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <link rel="icon" th:href="@{/images/favicon.ico}">
+</head>
+<body>
+<div th:insert="fragments/navbar :: navbar"></div>
+<section>
+    <div class="container">
+        <h3 class="text-dark mb-3 mt-4">Videojuego</h3>
+        <form th:action="@{/videojuego/aceptarEditVideojuego}" method="post" th:object="${videojuego}">
+            <div th:if="${mensajeError != null}" class='alert alert-danger' th:text="${mensajeError}" role='alert'></div>
+            <input type="hidden" name="id" th:value="${videojuego.id}">
+            <div class="mb-3">
+                <label for="titulo" class="form-label">Título</label>
+                <input type="text" class="form-control" id="titulo" th:field="*{titulo}" th:disabled="${isDisabled}" aria-describedby="tituloHelp">
+                <div id="tituloHelp" class="form-text">Ingrese el título del videojuego.</div>
+            </div>
+            <div class="mb-3">
+                <label for="rutaImg" class="form-label">Ruta de la imagen</label>
+                <input type="text" class="form-control" th:disabled="${isDisabled}" th:field="*{rutaImg}" id="rutaImg">
+            </div>
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <input type="text" class="form-control" th:disabled="${isDisabled}" th:field="*{descripcion}" id="descripcion">
+            </div>
+            <div class="mb-3">
+                <label for="cantidad" class="form-label">Cantidad</label>
+                <input type="number" min="0" max="32767" th:disabled="${isDisabled}" th:field="*{cantidad}" class="form-control" id="cantidad">
+            </div>
+            <div class="mb-3">
+                <label for="precioInput" class="form-label">Precio</label>
+                <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1">$</span>
+                    <input id="precioInput" type="number" step="0.01" class="form-control" th:disabled="${isDisabled}" th:field="*{precio}" placeholder="Precio" aria-label="Precio">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="lanzamiento" class="form-label">Lanzamiento</label>
+                <input type="date" class="form-control" th:disabled="${isDisabled}" th:field="*{lanzamiento}" id="lanzamiento">
+            </div>
+            <div class="mb-3">
+                <label for="categoriaIn" class="form-label">Categoria</label>
+                <select id="categoriaIn" class="form-select mb-3" aria-label="Seleccionar categoría" th:disabled="${isDisabled}" th:field="*{categoria}">
+                    <option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nombre}">Option</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="estudioIn" class="form-label">Estudio</label>
+                <select id="estudioIn" class="form-select mb-3" th:disabled="${isDisabled}" aria-label="Seleccionar estudio" th:field="*{estudio}">
+                    <option th:each="estudio : ${estudios}" th:value="${estudio.id}" th:text="${estudio.nombre}">Option</option>
+                </select>
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" th:disabled="${isDisabled}" th:field="*{oferta}" id="oferta">
+                <label class="form-check-label" for="oferta">¿Está en oferta?</label>
+            </div>
+            <button type="submit" th:disabled="${isDisabled}" class="btn btn-success">Aceptar</button>
+            <a th:href="@{/inicio}" class="btn btn-danger" role="button">Cancelar</a>
+        </form>
+    </div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</body>
+</html>
