@@ -41,7 +41,7 @@ public class VideojuegoController {
             return "view/videojuego/editVideojuego";
         } catch (Exception ex) {
             model.addAttribute("mensajeError", "Error con el formulario");
-            return "/view/videojuego/editVideojuego";
+            return "view/videojuego/editVideojuego";
         }
     }
 
@@ -60,7 +60,7 @@ public class VideojuegoController {
             return "view/videojuego/editVideojuego";
         } catch (Exception ex) {
             model.addAttribute("mensajeError", "Error con el formulario");
-            return "/view/videojuego/editVideojuego";
+            return "view/videojuego/editVideojuego";
         }
     }
 
@@ -132,7 +132,7 @@ public class VideojuegoController {
 
             if (result.hasErrors()) {
                 model.addAttribute("mensajeError", "Error con el formulario");
-                return "/view/videojuego/editVideojuego";
+                return "view/videojuego/editVideojuego";
             }
 
             if (videojuego.getId() == null || videojuego.getId().isEmpty()) {
@@ -143,11 +143,11 @@ public class VideojuegoController {
             return "redirect:/inicio";
         } catch (ErrorServiceException e) {
             model.addAttribute("mensajeError", e.getMessage());
-            return "/view/videojuego/editVideojuego";
+            return "view/videojuego/editVideojuego";
         } catch (Exception ex) {
             ex.printStackTrace();
             model.addAttribute("mensajeError", "Error de sistemas");
-            return "/view/videojuego/editVideojuego";
+            return "view/videojuego/editVideojuego";
 
         }
     }

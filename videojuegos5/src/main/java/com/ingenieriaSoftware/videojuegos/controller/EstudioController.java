@@ -24,13 +24,13 @@ public class EstudioController {
         try {
             Collection<Estudio> estudios = estudioService.listarEstudios();
             model.addAttribute("estudios", estudios);
-            return "/view/estudio/estudioList";
+            return "view/estudio/estudioList";
         } catch (ErrorServiceException ex) {
             model.addAttribute("mensajeError", ex.getMessage());
-            return "/view/estudio/estudioList";
+            return "view/estudio/estudioList";
         } catch (Exception ex) {
             model.addAttribute("mensajeError", "Error en el sistema");
-            return "/view/estudio/estudioList";
+            return "view/estudio/estudioList";
         }
     }
 
@@ -47,10 +47,10 @@ public class EstudioController {
             return "redirect:/estudios";
         } catch (ErrorServiceException ex) {
             model.addAttribute("mensajeError", ex.getMessage());
-            return "/view/estudio/estudioList";
+            return "view/estudio/estudioList";
         } catch (Exception ex) {
             model.addAttribute("mensajeError", "Error con el formulario");
-            return "/view/estudio/estudioList";
+            return "view/estudio/estudioList";
         }
     }
 
@@ -63,7 +63,7 @@ public class EstudioController {
     @GetMapping("/altaEstudio")
     public String alta(Model model, Estudio estudio) {
         model.addAttribute("isDisabled", false);
-        return "/view/estudio/estudioEdit";
+        return "view/estudio/estudioEdit";
     }
 
     /**
@@ -78,13 +78,13 @@ public class EstudioController {
             Estudio estudio = estudioService.buscarEstudio(id);
             model.addAttribute("estudio", estudio);
             model.addAttribute("isDisabled", false);
-            return "/view/estudio/estudioEdit";
+            return "view/estudio/estudioEdit";
         } catch (ErrorServiceException ex) {
             model.addAttribute("mensajeError", ex.getMessage());
-            return "/view/estudio/estudioEdit";
+            return "view/estudio/estudioEdit";
         } catch (Exception ex) {
             model.addAttribute("mensajeError", "Error en el sistema");
-            return "/view/estudio/estudioEdit";
+            return "view/estudio/estudioEdit";
         }
     }
 
@@ -100,13 +100,13 @@ public class EstudioController {
             Estudio estudio = estudioService.buscarEstudio(id);
             model.addAttribute("estudio", estudio);
             model.addAttribute("isDisabled", true);
-            return "/view/estudio/estudioEdit";
+            return "view/estudio/estudioEdit";
         } catch (ErrorServiceException ex) {
             model.addAttribute("mensajeError", ex.getMessage());
-            return "/view/estudio/estudioEdit";
+            return "view/estudio/estudioEdit";
         } catch (Exception ex) {
             model.addAttribute("mensajeError", "Error en el sistema");
-            return "/view/estudio/estudioEdit";
+            return "view/estudio/estudioEdit";
         }
     }
 
@@ -124,7 +124,7 @@ public class EstudioController {
         try {
             if (result.hasErrors()) {
                 model.addAttribute("mensajeError", "Error en el formulario");
-                return "/view/estudio/estudioEdit";
+                return "view/estudio/estudioEdit";
             }
 
             if (estudio.getId() == null || estudio.getId().isEmpty()) {
@@ -136,10 +136,10 @@ public class EstudioController {
             return "redirect:/estudios";
         } catch (ErrorServiceException ex) {
             model.addAttribute("mensajeError", ex.getMessage());
-            return "/view/estudio/estudioEdit";
+            return "view/estudio/estudioEdit";
         } catch (Exception ex) {
             model.addAttribute("mensajeError", "Error en el formulario");
-            return "/view/estudio/estudioEdit";
+            return "view/estudio/estudioEdit";
         }
     }
 }

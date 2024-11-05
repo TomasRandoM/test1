@@ -24,13 +24,13 @@ public class CategoriaController {
         try {
             Collection<Categoria> categorias = categoriaService.listarCategorias();
             model.addAttribute("categorias", categorias);
-            return "/view/categoria/categoriaList";
+            return "view/categoria/categoriaList";
         } catch (ErrorServiceException ex) {
             model.addAttribute("mensajeError", ex.getMessage());
-            return "/view/categoria/categoriaList";
+            return "view/categoria/categoriaList";
         } catch (Exception ex) {
             model.addAttribute("mensajeError", "Error en el sistema");
-            return "/view/categoria/categoriaList";
+            return "view/categoria/categoriaList";
         }
     }
 
@@ -47,10 +47,10 @@ public class CategoriaController {
             return "redirect:/categorias";
         } catch (ErrorServiceException ex) {
             model.addAttribute("mensajeError", ex.getMessage());
-            return "/view/categoria/categoriaList";
+            return "view/categoria/categoriaList";
         } catch (Exception ex) {
             model.addAttribute("mensajeError", "Error con el formulario");
-            return "/view/categoria/categoriaList";
+            return "view/categoria/categoriaList";
         }
     }
 
@@ -63,7 +63,7 @@ public class CategoriaController {
     @GetMapping("/altaCategoria")
     public String alta(Model model, Categoria categoria) {
         model.addAttribute("isDisabled", false);
-        return "/view/categoria/categoriaEdit";
+        return "view/categoria/categoriaEdit";
     }
 
     /**
@@ -78,13 +78,13 @@ public class CategoriaController {
             Categoria categoria = categoriaService.buscarCategoria(id);
             model.addAttribute("categoria", categoria);
             model.addAttribute("isDisabled", false);
-            return "/view/categoria/categoriaEdit";
+            return "view/categoria/categoriaEdit";
         } catch (ErrorServiceException ex) {
             model.addAttribute("mensajeError", ex.getMessage());
-            return "/view/categoria/categoriaEdit";
+            return "view/categoria/categoriaEdit";
         } catch (Exception ex) {
             model.addAttribute("mensajeError", "Error en el sistema");
-            return "/view/categoria/categoriaEdit";
+            return "view/categoria/categoriaEdit";
         }
     }
 
@@ -100,13 +100,13 @@ public class CategoriaController {
             Categoria categoria = categoriaService.buscarCategoria(id);
             model.addAttribute("categoria", categoria);
             model.addAttribute("isDisabled", true);
-            return "/view/categoria/categoriaEdit";
+            return "view/categoria/categoriaEdit";
         } catch (ErrorServiceException ex) {
             model.addAttribute("mensajeError", ex.getMessage());
-            return "/view/categoria/categoriaEdit";
+            return "view/categoria/categoriaEdit";
         } catch (Exception ex) {
             model.addAttribute("mensajeError", "Error en el sistema");
-            return "/view/categoria/categoriaEdit";
+            return "view/categoria/categoriaEdit";
         }
     }
 
@@ -124,7 +124,7 @@ public class CategoriaController {
         try {
             if (result.hasErrors()) {
                 model.addAttribute("mensajeError", "Error en el formulario");
-                return "/view/categoria/categoriaEdit";
+                return "view/categoria/categoriaEdit";
             }
 
             if (categoria.getId() == null || categoria.getId().isEmpty()) {
@@ -136,10 +136,10 @@ public class CategoriaController {
             return "redirect:/categorias";
         } catch (ErrorServiceException ex) {
             model.addAttribute("mensajeError", ex.getMessage());
-            return "/view/categoria/categoriaEdit";
+            return "view/categoria/categoriaEdit";
         } catch (Exception ex) {
             model.addAttribute("mensajeError", "Error en el formulario");
-            return "/view/categoria/categoriaEdit";
+            return "view/categoria/categoriaEdit";
         }
     }
 }
